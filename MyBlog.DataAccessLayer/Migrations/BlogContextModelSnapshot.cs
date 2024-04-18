@@ -248,6 +248,9 @@ namespace MyBlog.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArticleId"), 1L, 1);
 
+                    b.Property<int?>("AppUserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CoverImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -268,6 +271,8 @@ namespace MyBlog.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ArticleId");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Articles");
                 });
@@ -435,6 +440,20 @@ namespace MyBlog.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MyBlog.EntityLayer.Concrete.Article", b =>
+                {
+                    b.HasOne("MyBlog.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany("Articles")
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("MyBlog.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("Articles");
                 });
 #pragma warning restore 612, 618
         }
