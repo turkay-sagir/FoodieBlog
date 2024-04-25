@@ -38,7 +38,7 @@ namespace MyBlogPresentationLayer.Models
                 Code = "PasswordRequiresNonAlphanumeric",
                 Description = "Lütfen en az 1 tane sembol girişi yapınız."
             };
-        }
+        } 
 
     }
 }
