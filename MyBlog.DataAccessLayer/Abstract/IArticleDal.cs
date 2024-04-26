@@ -12,5 +12,9 @@ namespace MyBlog.DataAccessLayer.Abstract
         List<Article> GetArticlesByWriter(int id);
 
         List<Article> GetArticlesWithCategoryByWriter(int id);
+
+        List<Article> GetArticlesWithCategory();
+
+        Article GetArticlesWithCategoryByArticleId(int id);
     }
 }

@@ -35,18 +35,38 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
 
 
         [HttpPost]
+        [Route("EditProfile")]
+        public async Task<IActionResult> EditProfile(UserEditViewModel p)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
+            if(p.Image!=null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extension = Path.GetExtension(p.Image.FileName);
+                var imageName = Guid.NewGuid() + extension;
+                var saveLocation = resource + "/wwwroot/images/" + imageName;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.Image.CopyToAsync(stream);
+                user.ImageUrl = imageName;
 
+            }
 
+            user.Name = p.Name;
+            user.Surname = p.Surname;
+            user.Email = p.Email;
+            user.PhoneNumber = p.PhoneNumber;
+            user.City = p.City;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
 
+            var result = await _userManager.UpdateAsync(user);
 
+            if(result.Succeeded)
+            {
+                return RedirectToAction("MyBlogList", "Blog", new { Area = "Writer" });
+            }
 
-
-
-
-
-
-
-
+            return View();
+        }
     }
 }

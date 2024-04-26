@@ -22,6 +22,9 @@ builder.Services.AddScoped<ISocialMediaDal,EfSocialMediaDal>();
 builder.Services.AddDbContext<BlogContext>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityValidator>();
 
+builder.Services.AddScoped<ICommentService, CommentManager>();
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
