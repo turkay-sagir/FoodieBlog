@@ -16,6 +16,12 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View();
+        }
+
         [HttpGet]
         [Route("EditProfile")]
         public async Task<IActionResult> EditProfile()
