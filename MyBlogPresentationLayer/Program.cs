@@ -25,6 +25,9 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogCo
 builder.Services.AddScoped<ICommentService, CommentManager>();
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 
+builder.Services.AddScoped<IMessageService,MessageManager>();
+builder.Services.AddScoped<IMessageDal,EfMessageDal>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

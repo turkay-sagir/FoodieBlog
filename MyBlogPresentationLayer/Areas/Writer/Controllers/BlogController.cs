@@ -55,7 +55,7 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
         }
 
         [HttpPost]
-        [Route("UpdateBlog/{article}")]
+        [Route("UpdateBlog")]
         public IActionResult UpdateBlog(Article article)
         {
             _articleService.TUpdate(article);
@@ -63,6 +63,7 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
         }
 
         [HttpGet]
+        [Route("CreateBlog")]
         public IActionResult CreateBlog()
         {
             List<SelectListItem> values = (from x in _categoryService.TGetListAll()
@@ -77,6 +78,7 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
         }
 
         [HttpPost]
+        [Route("CreateBlog")]
         public async Task<IActionResult> CreateBlog(Article article)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -85,7 +87,7 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
             article.AppUserId = user.Id;
 
             _articleService.TInsert(article);
-            return RedirectToAction("MyBlogList");
+            return RedirectToAction("MyBlogList","Blog", new {area="Writer"});
         }
 
 

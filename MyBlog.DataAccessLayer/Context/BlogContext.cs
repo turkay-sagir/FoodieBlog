@@ -22,5 +22,7 @@ namespace MyBlog.DataAccessLayer.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Writer> Writers { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

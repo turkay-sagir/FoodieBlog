@@ -5,9 +5,9 @@ using MyBlog.EntityLayer.Concrete;
 
 namespace MyBlogPresentationLayer.Areas.Writer.ViewComponents.WriterLayoutViewComponents
 {
-    public class _WriterNavbarComponentPartial:ViewComponent
+    public class _WriterNavbarNotificationComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+       public IViewComponentResult Invoke()
         {
             return View();
         }

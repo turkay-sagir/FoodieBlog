@@ -8,7 +8,7 @@
 @await Component.InvokeAsync("_WriterHeadComponentPartial")
 <body>
     <div class="container-scroller">
-        @await Component.InvokeAsync("_WriterNavbarComponentPartial")
+        @await Component.InvokeAsync("_WriterSidebarComponentPartial")
         <div class="container-fluid page-body-wrapper">
             <div id="theme-settings" class="settings-panel">
                 <i class="settings-close mdi mdi-close"></i>
@@ -25,7 +25,7 @@
                     <div class="tiles dark"></div>
                 </div>
             </div>
-            @await Component.InvokeAsync("_WriterSidebarComponentPartial")
+            @await Component.InvokeAsync("_WriterNavbarComponentPartial")
             @RenderBody()
             <!-- main-panel ends -->
         </div>
