@@ -1,4 +1,5 @@
-﻿using MyBlog.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlog.DataAccessLayer.Abstract;
 using MyBlog.DataAccessLayer.Context;
 using MyBlog.DataAccessLayer.Repositories;
 using MyBlog.EntityLayer.Concrete;
@@ -17,5 +18,11 @@ namespace MyBlog.DataAccessLayer.EntityFramework
         {
             return context.Comments.Where(x=>x.ArticleId == id).ToList();
         }
+
+        public List<Comment> GetCommentsWithUserByBlog(int id)
+        {
+            return context.Comments.Where(x => x.ArticleId == id).Include(x => x.AppUser).ToList();
+        }
+
     }
 }

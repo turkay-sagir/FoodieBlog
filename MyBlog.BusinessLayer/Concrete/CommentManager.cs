@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyBlog.BusinessLayer.Concrete
 {
-    public class CommentManager:ICommentService
+    public class CommentManager : ICommentService
     {
         private readonly ICommentDal _commentDal;
 
@@ -20,12 +20,12 @@ namespace MyBlog.BusinessLayer.Concrete
 
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _commentDal.Delete(id);
         }
 
         public Comment TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetById(id);
         }
 
         public List<Comment> TGetCommentsByBlog(int id)
@@ -33,19 +33,24 @@ namespace MyBlog.BusinessLayer.Concrete
             return _commentDal.GetCommentsByBlog(id);
         }
 
+        public List<Comment> TGetCommentsWithUserByBlog(int id)
+        {
+            return _commentDal.GetCommentsWithUserByBlog(id);
+        }
+
         public List<Comment> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetListAll();
         }
 
         public void TInsert(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Insert(entity);
         }
 
         public void TUpdate(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Update(entity);
         }
     }
 }

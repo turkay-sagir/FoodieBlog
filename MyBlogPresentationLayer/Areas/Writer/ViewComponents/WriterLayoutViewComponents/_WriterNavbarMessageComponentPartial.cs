@@ -19,7 +19,7 @@ namespace MyBlogPresentationLayer.Areas.Writer.ViewComponents.WriterLayoutViewCo
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var values = _messageService.TGetListOfReceivedMessage(user.Email);
+            var values = _messageService.TGetListOfReceivedMessage(user.Email).TakeLast(3).ToList();
             ViewBag.messageCount = values.Count();
             return View(values);
         }

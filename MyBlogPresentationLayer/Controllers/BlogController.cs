@@ -14,7 +14,6 @@ namespace MyBlogPresentationLayer.Controllers
 
         public IActionResult BlogDetail(int id)
         {
-            id = 2;
             var values = _articleService.TGetById(id);
             ViewBag.createdDate = values.CreatedDate;
             ViewBag.Title = values.Title;
@@ -23,9 +22,10 @@ namespace MyBlogPresentationLayer.Controllers
             var values2= _articleService.TGetArticlesWithCategoryByArticleId(id);
             ViewBag.categoryName = values2.Category.CategoryName;
 
-
+            ViewBag.ArticleId = id;
 
             return View();
         }
+
     }
 }

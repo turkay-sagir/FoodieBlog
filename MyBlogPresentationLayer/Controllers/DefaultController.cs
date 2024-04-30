@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyBlog.BusinessLayer.Abstract;
+using System.Runtime.CompilerServices;
 
 namespace MyBlogPresentationLayer.Controllers
 {
@@ -8,5 +10,11 @@ namespace MyBlogPresentationLayer.Controllers
         {
             return View();
         }
+
+        public PartialViewResult PartialCreateComment()
+        {
+            return PartialView();
+        }
+
     }
 }
