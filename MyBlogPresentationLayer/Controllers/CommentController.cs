@@ -26,6 +26,7 @@ namespace MyBlogPresentationLayer.Controllers
             {
                 p.CreatedDate= DateTime.Now;
                 p.Status = true;
+                p.AppUserId = user.Id;
 
                 _commentService.TInsert(p);
             }
