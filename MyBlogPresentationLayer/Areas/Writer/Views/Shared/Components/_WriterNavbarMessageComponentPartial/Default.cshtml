@@ -21,7 +21,8 @@
 
                         else
                         {
-                            @item.MessageContent.Substring(0,30);
+                            var newContent = item.MessageContent.Substring(0, 30) + "...";
+                            @newContent
                         }
 
                     </p>

@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-12 stretch-card grid-margin">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-warning">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Sales</p>
+                                        <h2 class="text-white">
+                                            $8,753.<span class="h5">00</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+                                </div>
+                                <h6 class="text-white">18.33% Since last month</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-danger">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Margin</p>
+                                        <h2 class="text-white">
+                                            $5,300.<span class="h5">00</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-cube-outline bg-inverse-icon-danger"></i>
+                                </div>
+                                <h6 class="text-white">13.21% Since last month</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-primary">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Orders</p>
+                                        <h2 class="text-white">
+                                            $1,753.<span class="h5">00</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-briefcase-outline bg-inverse-icon-primary"></i>
+                                </div>
+                                <h6 class="text-white">67.98% Since last month</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-md-6 stretch-card pb-sm-3 pb-lg-0">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Affiliate</p>
+                                        <h2 class="text-white">2368</h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-account-circle bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">20.32% Since last month</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8 grid-margin stretch-card">
+                <div class="card card-calender">
+                    <div class="card-body">
+                        <div class="row pt-4">
+                            <div class="col-sm-6">
+                                <h2 class="text-white">@ViewBag.date</h2>
+                                <h4 class="text-white">@ViewBag.time</h4>
+                                <h5 class="text-white pt-2 m-0">Güneşin Doğuşu: @ViewBag.sunRise</h5>
+                                <h5 class="text-white m-0">Güneşin Batışı: @ViewBag.sunSet</h5>
+                                <h5 class="text-white pt-4 m-0">Yağış: %@ViewBag.precipitation</h5>
+                                <h5 class="text-white m-0">Nem Oranı: %@ViewBag.humidity</h5>
+                                <h5 class="text-white m-0">Rüzgar Hızı: @ViewBag.windSpeed m/s</h5>
+                                <h5 class="text-white m-0">Rüzgar Yönü: @ViewBag.windDirection WNW</h5>
+                                <h5 class="text-white m-0">Bulutluluk Değeri: @ViewBag.clouds</h5>
+                            </div>
+                            <div class="col-sm-6 text-sm-right pt-3 pt-sm-0">
+                                <h3 class="text-white">@ViewBag.weather</h3>
+                                <h4 class="text-white">@ViewBag.cloudsName</h4>
+                                <h3 class="text-white pt-4 m-0">@ViewBag.temperature °C</h3>
+                            </div>
+                        </div>
+                        <br /><br /><br /><br />
+                        <div class="col-sm-12">
+                            <strong><p style="font-size:50px;color:white" align="center">@ViewBag.cityName Şehri Anlık Hava Durumu</p></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

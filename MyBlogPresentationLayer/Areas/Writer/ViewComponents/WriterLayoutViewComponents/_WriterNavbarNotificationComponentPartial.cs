@@ -7,9 +7,18 @@ namespace MyBlogPresentationLayer.Areas.Writer.ViewComponents.WriterLayoutViewCo
 {
     public class _WriterNavbarNotificationComponentPartial:ViewComponent
     {
-       public IViewComponentResult Invoke()
+        private readonly INotificationService _notificationService;
+
+        public _WriterNavbarNotificationComponentPartial(INotificationService notificationService)
         {
-            return View();
+            _notificationService = notificationService;
+        }
+
+        public IViewComponentResult Invoke()
+        {
+            var values = _notificationService.TGetListAll().Where(x => x.Status == true).TakeLast(3).ToList();
+            ViewBag.notificationCount = values.Count();
+            return View(values);
         }
     }
 }

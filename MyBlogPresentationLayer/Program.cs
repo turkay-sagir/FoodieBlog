@@ -28,6 +28,9 @@ builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 builder.Services.AddScoped<IMessageService,MessageManager>();
 builder.Services.AddScoped<IMessageDal,EfMessageDal>();
 
+builder.Services.AddScoped<INotificationService, NotificationManager>();
+builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
