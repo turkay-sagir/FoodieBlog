@@ -18,7 +18,17 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
             XDocument xDocument = XDocument.Load(connection);
             ViewBag.temperature = xDocument.Descendants("temperature").ElementAt(0).Attribute("value").Value;
             ViewBag.feelsTemperature = xDocument.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-            ViewBag.precipitation = (xDocument.Descendants("precipitation").ElementAt(0).Attribute("value").Value).Substring(2, 2);
+
+            if ((xDocument.Descendants("precipitation").ElementAt(0).Attribute("mode").Value) != "no")
+            {
+                ViewBag.precipitation = "%"+(xDocument.Descendants("precipitation").ElementAt(0).Attribute("value").Value).Substring(2, 2);
+            }
+
+            else
+            {
+                ViewBag.precipitation = "Yağış Yok";
+            }
+
             ViewBag.humidity = xDocument.Descendants("humidity").ElementAt(0).Attribute("value").Value;
             ViewBag.windSpeed = xDocument.Descendants("wind").Elements("speed").FirstOrDefault()?.Attribute("value").Value;
             ViewBag.windDirection = xDocument.Descendants("wind").Elements("direction").FirstOrDefault()?.Attribute("value").Value;

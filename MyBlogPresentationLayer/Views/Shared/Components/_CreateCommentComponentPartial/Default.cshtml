@@ -2,15 +2,63 @@
     <div class="widget__title">
         <h4>Bir yorum yapın</h4>
     </div>
-    <form id="commentForm">
+    <form method="post" class="commentForm">
         <div class="form-group">
             <input type="hidden" name="ArticleId" value="@ViewBag.ArticleId" />
         </div>
         <div class="form-group">
             <textarea name="Description" placeholder="Mesajınızı yazın..."></textarea>
         </div>
-        <div class="form-group">
-            <button id="btnComment" class="btn btn-warning">Yorum Yap</button>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <div class="form-group">
+                <button id="btnComment" class="btn btn-warning">Yorum Yap</button>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Yorum oluşturabilmek için giriş yapmanız gerekmektedir!
+                <a asp-action="Index" asp-controller="Login">Giriş Yap</a>
+            </div>
+        }
     </form>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.commentForm').submit(function (e) {
+            e.preventDefault();
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "/Comment/CreateComment",
+                data: formData,
+                success: function (response) {
+                    if (response === "Success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Yorum Eklendi!',
+                            text: 'Yorumunuz başarılı bir şekilde eklenmiştir.'
+                        });
+                    } if (response == "Error") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Yorum Ekleme Başarısız!',
+                            text: 'Yorumun ekleme işlemi başarısız.'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Mesaj oluşturulurken bir hata oluştu");
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

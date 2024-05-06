@@ -15,7 +15,7 @@ namespace MyBlogPresentationLayer.ViewComponents.CommentViewComponents
         public IViewComponentResult Invoke(int id) //BlogDetail içinde kullanılıyor
         {
             
-            var values = _commentService.TGetCommentsWithUserByBlog(id);
+            var values = _commentService.TGetCommentsWithUserByBlog(id).Where(x=>x.Status=="Onaylandı").ToList();
             return View(values);
         }
     }

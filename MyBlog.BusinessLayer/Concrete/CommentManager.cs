@@ -18,6 +18,11 @@ namespace MyBlog.BusinessLayer.Concrete
             _commentDal = commentDal;
         }
 
+        public Comment TGetCommentWithUserAndBlog(int id)
+        {
+            return _commentDal.GetCommentWithUserAndBlog(id);
+        }
+
         public void TDelete(int id)
         {
             _commentDal.Delete(id);
@@ -31,6 +36,11 @@ namespace MyBlog.BusinessLayer.Concrete
         public List<Comment> TGetCommentsByBlog(int id)
         {
             return _commentDal.GetCommentsByBlog(id);
+        }
+
+        public List<Comment> TGetCommentsOfBlogsByWriter(int id)
+        {
+            return _commentDal.GetCommentsOfBlogsByWriter(id);
         }
 
         public List<Comment> TGetCommentsWithUserByBlog(int id)

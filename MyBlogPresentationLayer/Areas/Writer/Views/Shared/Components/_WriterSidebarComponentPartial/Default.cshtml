@@ -7,15 +7,15 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="~/Breeze/template/assets/images/faces/face16.jpg" alt="profile" />
+                    <img src="~/images/@ViewBag.userImage" alt="profile" />
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column pr-3">
-                    <span class="font-weight-medium mb-2">Henry Klein</span>
-                    <span class="font-weight-normal">$8,753.00</span>
+                    <span class="font-weight-medium mb-2">@ViewBag.userInfo</span>
+                    <span class="font-weight-normal">@ViewBag.userCity</span>
                 </div>
-                <span class="badge badge-danger text-white ml-3 rounded">3</span>
+                <span class="badge badge-danger text-white ml-3 rounded">@ViewBag.articleCount</span>
             </a>
         </li>
         <li class="nav-item">
@@ -63,7 +63,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Writer/Comment/CommentList">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Yorumlar</span>
             </a>
@@ -76,13 +76,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
-                <i class="mdi mdi-chart-pie menu-icon"></i>
-                <span class="menu-title">Grafikler</span>
+                <i class="mdi mdi-tag-multiple menu-icon"></i>
+                <span class="menu-title">Etiketler</span>
             </a>
         </li>
-        
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/Login/SignOut">
                 <i class="mdi mdi-logout menu-icon"></i>
                 <span class="menu-title">Çıkış Yap</span>
             </a>

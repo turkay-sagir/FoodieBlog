@@ -18,20 +18,17 @@ namespace MyBlogPresentationLayer.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateComment(Comment p)
+        public async Task<JsonResult> CreateComment(Comment p)
         {
-            var user = _userManager.FindByNameAsync(User.Identity.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            if (user!=null)
-            {
-                p.CreatedDate= DateTime.Now;
-                p.Status = true;
-                p.AppUserId = user.Id;
+            p.CreatedDate = DateTime.Now;
+            p.Status = "Bekliyor";
+            p.AppUserId = user.Id;
 
-                _commentService.TInsert(p);
-            }
+            _commentService.TInsert(p);
 
-            return Json(p);
+            return Json("Success");
         }
     }
 }

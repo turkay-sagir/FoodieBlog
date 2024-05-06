@@ -11,5 +11,7 @@ namespace MyBlog.DataAccessLayer.Abstract
     {
         List<Comment> GetCommentsByBlog(int id);
         List<Comment> GetCommentsWithUserByBlog(int id);
+        List<Comment> GetCommentsOfBlogsByWriter(int id);
+        Comment GetCommentWithUserAndBlog(int id);
     }
 }

@@ -10,8 +10,8 @@
             <h3 class="page-title">Blog Güncelleme Sayfası</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Blog Listem</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Yeni Blog</li>
+                    <li class="breadcrumb-item"><a href="#">Bloglar</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog Güncelleme</li>
                 </ol>
             </nav>
         </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Blog İçeriği</label>
-                                <textarea class="form-control" rows="10" asp-for="Detail"></textarea>
+                                <textarea class="form-control" rows="10" id="summernote" asp-for="Detail"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2"> Blogu Güncelle </button>
                         </form>
