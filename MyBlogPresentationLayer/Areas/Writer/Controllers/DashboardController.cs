@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MyBlog.BusinessLayer.Abstract;
+using MyBlog.EntityLayer.Concrete;
 using System.Globalization;
 using System.Xml.Linq;
 
@@ -8,8 +11,21 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
     [Route("Writer/Dashboard")]
     public class DashboardController : Controller
     {
+        private readonly IArticleService _articleService;
+        private readonly IMessageService _messageService;
+        private readonly ICommentService _commentService;
+        private readonly UserManager<AppUser> _userManager;
+
+        public DashboardController(IArticleService articleService, UserManager<AppUser> userManager, IMessageService messageService, ICommentService commentService)
+        {
+            _articleService = articleService;
+            _userManager = userManager;
+            _messageService = messageService;
+            _commentService = commentService;
+        }
+
         [Route("Index")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             //weather forecast information
@@ -41,6 +57,19 @@ namespace MyBlogPresentationLayer.Areas.Writer.Controllers
             ViewBag.date = DateTime.Now.ToString("D");
             ViewBag.time = DateTime.Now.ToString("t");
 
+
+            //Veriler
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var article = _articleService.TGetArticlesByWriter(user.Id);
+            var receivedMessage = _messageService.TGetListOfReceivedMessage(user.Email);
+            var sentMessage = _messageService.TGetListOfSentMessage(user.Email);
+            var comment = _commentService.TGetCommentsOfBlogsByWriter(user.Id);
+            
+            ViewBag.blogCount = article.Count();
+            ViewBag.receivedMessageCount = receivedMessage.Count();
+            ViewBag.sentMessageCount = sentMessage.Count();
+            ViewBag.commentCount = comment.Count();
             return View();
         }
     }

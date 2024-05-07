@@ -14,14 +14,14 @@
                             <div class="card-body px-3 py-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="color-card">
-                                        <p class="mb-0 color-card-head">Sales</p>
+                                        <p class="mb-0 color-card-head">Bloglarım</p>
                                         <h2 class="text-white">
-                                            $8,753.<span class="h5">00</span>
+                                            @ViewBag.blogCount<span class="h5"> Tane</span>
                                         </h2>
                                     </div>
-                                    <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+                                    <i class="card-icon-indicator mdi mdi-blogger bg-inverse-icon-warning"></i>
                                 </div>
-                                <h6 class="text-white">18.33% Since last month</h6>
+                                <h6 class="text-white">blog yazdınız</h6>
                             </div>
                         </div>
                     </div>
@@ -30,14 +30,14 @@
                             <div class="card-body px-3 py-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="color-card">
-                                        <p class="mb-0 color-card-head">Margin</p>
+                                        <p class="mb-0 color-card-head">Gelen Mesajlar</p>
                                         <h2 class="text-white">
-                                            $5,300.<span class="h5">00</span>
+                                            @ViewBag.receivedMessageCount<span class="h5"> Tane</span>
                                         </h2>
                                     </div>
-                                    <i class="card-icon-indicator mdi mdi-cube-outline bg-inverse-icon-danger"></i>
+                                    <i class="card-icon-indicator mdi mdi-message-text bg-inverse-icon-danger"></i>
                                 </div>
-                                <h6 class="text-white">13.21% Since last month</h6>
+                                <h6 class="text-white">gelen mesajınız vardır</h6>
                             </div>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                             <div class="card-body px-3 py-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="color-card">
-                                        <p class="mb-0 color-card-head">Orders</p>
+                                        <p class="mb-0 color-card-head">Gönderilen Mesajlar</p>
                                         <h2 class="text-white">
-                                            $1,753.<span class="h5">00</span>
+                                            @ViewBag.sentMessageCount<span class="h5"> Tane</span>
                                         </h2>
                                     </div>
-                                    <i class="card-icon-indicator mdi mdi-briefcase-outline bg-inverse-icon-primary"></i>
+                                    <i class="card-icon-indicator mdi mdi-email bg-inverse-icon-primary"></i>
                                 </div>
-                                <h6 class="text-white">67.98% Since last month</h6>
+                                <h6 class="text-white">gönderilen mesajınız vardır</h6>
                             </div>
                         </div>
                     </div>
@@ -62,12 +62,14 @@
                             <div class="card-body px-3 py-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="color-card">
-                                        <p class="mb-0 color-card-head">Affiliate</p>
-                                        <h2 class="text-white">2368</h2>
+                                        <p class="mb-0 color-card-head">Yorumlarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.commentCount<span class="h5"> Tane</span>
+                                        </h2>
                                     </div>
-                                    <i class="card-icon-indicator mdi mdi-account-circle bg-inverse-icon-success"></i>
+                                    <i class="card-icon-indicator mdi mdi-comment bg-inverse-icon-success"></i>
                                 </div>
-                                <h6 class="text-white">20.32% Since last month</h6>
+                                <h6 class="text-white">bloglarınıza yapılan yorum vardır</h6>
                             </div>
                         </div>
                     </div>
