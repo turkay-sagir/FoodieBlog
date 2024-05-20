@@ -62,5 +62,10 @@ namespace MyBlog.BusinessLayer.Concrete
         {
             _articleDal.Update(entity);
         }
+
+        public int TMostCommentedArticle(int id)
+        {
+            return _articleDal.MostCommentedArticle(id);
+        }
     }
 }

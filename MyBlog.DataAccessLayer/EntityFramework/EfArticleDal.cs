@@ -37,5 +37,12 @@ namespace MyBlog.DataAccessLayer.EntityFramework
             var values = context.Articles.Where(x => x.AppUserId == id).Include(x => x.Category).ToList();
             return values;
         }
+
+        public int MostCommentedArticle(int id)
+        {
+            var values = context.Articles.Where(x=>x.AppUserId==id).Select(x=>x.ArticleId).ToList();
+            return context.Comments.Where(x => values.Contains(x.ArticleId)).GroupBy(x => x.ArticleId).OrderByDescending(y => y.Count()).Select(z => z.Key).FirstOrDefault();
+        }
+
     }
 }

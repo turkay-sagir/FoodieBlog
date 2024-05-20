@@ -24,7 +24,7 @@ namespace MyBlog.DataAccessLayer.EntityFramework
 
         public Comment GetCommentWithUserAndBlog(int id)
         {
-            return context.Comments.Include(x => x.AppUser).Include(x => x.Article).FirstOrDefault();
+            return context.Comments.Where(x=>x.CommentId==id).Include(x => x.AppUser).Include(x => x.Article).FirstOrDefault();
         }
 
         public List<Comment> GetCommentsByBlog(int id)

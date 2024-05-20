@@ -16,5 +16,6 @@ namespace MyBlog.DataAccessLayer.Abstract
         List<Article> GetArticlesWithCategory();
 
         Article GetArticlesWithCategoryByArticleId(int id);
+        int MostCommentedArticle(int id);
     }
 }
