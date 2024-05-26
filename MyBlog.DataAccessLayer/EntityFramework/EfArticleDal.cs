@@ -26,6 +26,11 @@ namespace MyBlog.DataAccessLayer.EntityFramework
             return values;
         }
 
+        public List<Article> GetArticlesWithCategoryAndUser()
+        {
+            return context.Articles.Include(x=>x.Category).Include(x=>x.AppUser).Include(x=>x.Comments).ToList();
+        }
+
         public Article GetArticlesWithCategoryByArticleId(int id)
         {
             var values = context.Articles.Where(x=> x.ArticleId == id).Include(y=>y.Category).FirstOrDefault();

@@ -67,5 +67,10 @@ namespace MyBlog.BusinessLayer.Concrete
         {
             return _articleDal.MostCommentedArticle(id);
         }
+
+        public List<Article> TGetArticlesWithCategoryAndUser()
+        {
+            return _articleDal.GetArticlesWithCategoryAndUser();
+        }
     }
 }

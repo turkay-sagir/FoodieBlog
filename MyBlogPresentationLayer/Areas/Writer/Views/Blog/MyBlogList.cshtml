@@ -33,6 +33,7 @@
                                         <th>Tarih</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
+                                        <th>Etiket Ekle</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,7 @@
                                             <td>@item.CreatedDate</td>
                                             <td><a href="/Writer/Blog/DeleteBlog/@item.ArticleId" class="btn btn-danger">Sil</a></td>
                                             <td><a href="/Writer/Blog/UpdateBlog/@item.ArticleId" class="btn btn-success">Güncelle</a></td>
+                                            <td><a href="/Writer/Blog/AddTag/@item.ArticleId" class="btn btn-primary">Etiket Ekle</a></td>
                                         </tr>
                                     }
                                 </tbody>

@@ -31,6 +31,12 @@ builder.Services.AddScoped<IMessageDal,EfMessageDal>();
 builder.Services.AddScoped<INotificationService, NotificationManager>();
 builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
 
+builder.Services.AddScoped<ITagService, TagManager>();
+builder.Services.AddScoped<ITagDal, EfTagDal>();
+
+builder.Services.AddScoped<IArticleTagService, ArticleTagManager>();
+builder.Services.AddScoped<IArticleTagDal, EfArticleTagDal>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -43,13 +49,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

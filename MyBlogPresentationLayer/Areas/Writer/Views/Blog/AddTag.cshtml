@@ -1,0 +1,43 @@
+﻿@model List<int>
+@{
+    ViewData["Title"] = "AddTag";
+    Layout = "~/Areas/Writer/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Yeni Etiket Girişi</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Etiketler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Etiket Ekleme</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Etiket Ekleme Paneli</h4>
+                        <p class="card-description">Aşağıda, seçilen bloga ait etiketleri düzenleyebilirsiniz.</p>
+                        <form class="forms-sample" method="post">
+                            @foreach (var item in ViewBag.tagList)
+                            {
+                                <div class="form-group">
+                                    <input type="checkbox" name="SelectedTagIds" value="@item.Value" @(item.Selected ? "checked" : "") />
+                                    <label>@item.Text</label>
+                                </div>
+                            }
+
+                            <input type="hidden" name="articleId" value="@ViewBag.articleId" />
+                            <button type="submit" class="btn btn-primary mr-2"> Etiket Ekle </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

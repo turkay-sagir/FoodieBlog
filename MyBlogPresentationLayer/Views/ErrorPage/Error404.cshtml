@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sayfa Bulunamadı</title>
+    <link rel="stylesheet" href="~/Breeze/ErrorPages/Error404/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>404</h1>
+        </div>
+        <div class="right">
+            <p class="large">Üzgünüz!</p>
+            <p class="subdued">Aradığınız sayfayı bulamadık :(</p>
+        </div>
+    </div>
+    <div class="center">
+        <a href="/Default/Index">Ana Sayfaya Dönün</a>
+    </div>
+    <footer>
+        <p>Copyright &copy; <span id="year"></span> | Tüm hakları saklıdır.</p>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
