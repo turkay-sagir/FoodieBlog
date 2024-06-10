@@ -5,25 +5,9 @@ namespace MyBlogPresentationLayer.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly IArticleService _articleService;
-
-        public BlogController(IArticleService articleService)
-        {
-            _articleService = articleService;
-        }
-
         public IActionResult BlogDetail(int id)
         {
-            var values = _articleService.TGetById(id);
-            ViewBag.createdDate = values.CreatedDate;
-            ViewBag.Title = values.Title;
-            ViewBag.detail = values.Detail;
-
-            var values2= _articleService.TGetArticlesWithCategoryByArticleId(id);
-            ViewBag.categoryName = values2.Category.CategoryName;
-
             ViewBag.ArticleId = id;
-
             return View();
         }
 

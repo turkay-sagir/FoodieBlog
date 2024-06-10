@@ -1,0 +1,56 @@
+﻿@model List<Tag>
+@{
+    ViewData["Title"] = "TagList";
+    Layout = "~/Areas/Writer/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Etiket Sayfası</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Etiketler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Blog Etiketleri </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Etiket Listesi</h4>
+                        <p class="card-description">
+                            Mevcut blog etiketleriyle ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.TagId</td>
+                                            <td>@item.TagTitle</td>
+                                            <td><a href="/Writer/Tag/DeleteTag/@item.TagId" class="btn btn-danger">Sil</a></td>
+                                            <td><a href="/Writer/Tag/UpdateTag/@item.TagId" class="btn btn-success">Güncelle</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/Writer/Tag/CreateTag" class="btn btn-info">Yeni Etiket Girişi</a>
+        </div>
+    </div>
+</div>
+

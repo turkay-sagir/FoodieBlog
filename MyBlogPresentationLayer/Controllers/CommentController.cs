@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.BusinessLayer.Abstract;
 using MyBlog.EntityLayer.Concrete;
@@ -6,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace MyBlogPresentationLayer.Controllers
 {
+    
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;

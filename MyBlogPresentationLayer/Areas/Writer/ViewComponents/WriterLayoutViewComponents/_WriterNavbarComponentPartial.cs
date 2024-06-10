@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyBlog.BusinessLayer.Abstract;
 using MyBlog.EntityLayer.Concrete;
 
-namespace MyBlogPresentationLayer.Areas.Writer.ViewComponents.WriterLayoutViewComponents
+namespace MyBlogPresentationLayer.Areas.Admin.ViewComponents.WriterLayoutViewComponents
 {
     public class _WriterNavbarComponentPartial:ViewComponent
     {

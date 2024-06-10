@@ -12,7 +12,7 @@ namespace MyBlogPresentationLayer.ViewComponents.CommentViewComponents
             _commentService = commentService;
         }
 
-        public IViewComponentResult Invoke(int id) //BlogDetail içinde kullanılıyor
+        public IViewComponentResult Invoke(int id)
         {
             
             var values = _commentService.TGetCommentsWithUserByBlog(id).Where(x=>x.Status=="Onaylandı").ToList();

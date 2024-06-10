@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+
+        <div class="row">
+            <div class="col-xl-12 grid-margin">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-warning">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Bloglarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.blogCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-auto-fix bg-inverse-icon-warning"></i>
+                                </div>
+                                <h6 class="text-white">blog yazdınız</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-danger">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Bloglarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.firstBlog<span class="h5"></span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-anchor bg-inverse-icon-danger"></i>
+                                </div>
+                                <h6 class="text-white">İlk Blogunuz</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-primary">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Bloglarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.lastBlog<span class="h5"></span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-apps bg-inverse-icon-primary"></i>
+                                </div>
+                                <h6 class="text-white">Son Blogunuz</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Bloglarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.mostCommentedArticle<span class="h5"></span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-bridge bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">En Çok Yorum Alan Blogunuz</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 grid-margin">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-warning">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Mesajlarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.receivedMessageCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-format-list-bulleted bg-inverse-icon-warning"></i>
+                                </div>
+                                <h6 class="text-white">mesajınız var</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                        <div class="card bg-danger">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Mesajlarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.unreadReceivedMessageCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-message-plus bg-inverse-icon-danger"></i>
+                                </div>
+                                <h6 class="text-white">okunmamış mesajınız var</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-primary">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Yorumlarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.commentsCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-message-draw bg-inverse-icon-primary"></i>
+                                </div>
+                                <h6 class="text-white">bloglarınıza yapılan yorum var</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-primary">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Yorumlarım</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.commentsForApproveCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-message-draw bg-inverse-icon-primary"></i>
+                                </div>
+                                <h6 class="text-white">yorum onay için bekliyor</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Bildirimlerim</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.notificationCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-bell-outline bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">bildiriminiz var</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Kategoriler</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.categoryCount<span class="h5"> tane</span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-bell-outline bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">farklı kategori var</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Kategoriler</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.firstCategory<span class="h5"></span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-bell-outline bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">İlk Eklenen Kategori</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                        <div class="card bg-success">
+                            <div class="card-body px-3 py-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="color-card">
+                                        <p class="mb-0 color-card-head">Kategoriler</p>
+                                        <h2 class="text-white">
+                                            @ViewBag.lastCategory<span class="h5"></span>
+                                        </h2>
+                                    </div>
+                                    <i class="card-icon-indicator mdi mdi-bell-outline bg-inverse-icon-success"></i>
+                                </div>
+                                <h6 class="text-white">Son Eklenen Kategori</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

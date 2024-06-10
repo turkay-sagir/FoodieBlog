@@ -15,5 +15,6 @@ namespace MyBlog.BusinessLayer.Abstract
         List<Article> TGetArticlesWithCategoryAndUser();
         Article TGetArticlesWithCategoryByArticleId(int id);
         int TMostCommentedArticle(int id);
+        Article TGetArticleWithCategoryAndUser(int id);
     }
 }

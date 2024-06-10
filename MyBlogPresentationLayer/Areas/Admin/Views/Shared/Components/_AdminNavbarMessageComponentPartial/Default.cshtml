@@ -1,0 +1,35 @@
+﻿@model List<Message>
+
+<li class="nav-item dropdown d-none d-sm-flex">
+    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
+        <i class="mdi mdi-email-outline"></i>
+        <span class="count count-varient2">@ViewBag.messageCount</span>
+    </a>
+    <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
+        <h6 class="p-3 mb-0">Mesajlar</h6>
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-success">@item.Subject</span>
+                    <p class="text-small text-muted ellipsis mb-0"> 
+                        
+                        @if (item.MessageContent.Length<30)
+                        {
+                            @item.MessageContent
+                        }
+
+                        else
+                        {
+                            var newContent = item.MessageContent.Substring(0, 30) + "...";
+                            @newContent
+                        }
+
+                    </p>
+                </div>
+                <p class="text-small text-muted align-self-start"> @item.CreatedDate.ToString("dd MMM yy") </p>
+            </a>
+        }
+        <a href="/Admin/Message/Inbox"><h6 class="p-3 mb-0">Gelen Tüm Mesajları Gör</h6></a>
+    </div>
+</li>

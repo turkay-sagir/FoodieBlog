@@ -28,6 +28,11 @@ namespace MyBlog.BusinessLayer.Concrete
             return _categoryDal.GetById(id);
         }
 
+        public List<KeyValuePair<string, int>> TGetCategoriesWithArticleCount()
+        {
+            return _categoryDal.GetCategoriesWithArticleCount();
+        }
+
         public List<Category> TGetListAll()
         {
             return _categoryDal.GetListAll();

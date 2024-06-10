@@ -1,4 +1,5 @@
-﻿using MyBlog.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlog.DataAccessLayer.Abstract;
 using MyBlog.DataAccessLayer.Context;
 using MyBlog.DataAccessLayer.Repositories;
 using MyBlog.EntityLayer.Concrete;
@@ -15,7 +16,7 @@ namespace MyBlog.DataAccessLayer.EntityFramework
         BlogContext context = new BlogContext();
         public List<ArticleTag> GetTagListByArticle(int id)
         {
-            return context.ArticleTags.Where(x=>x.ArticleId == id).ToList();
+            return context.ArticleTags.Where(x=>x.ArticleId == id).Include(x=>x.Tag).ToList();
         }
 
         public ArticleTag GetArticleTagByTagIdAndArticleId(int tagId, int articleId)

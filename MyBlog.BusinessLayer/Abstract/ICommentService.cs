@@ -13,5 +13,6 @@ namespace MyBlog.BusinessLayer.Abstract
         List<Comment> TGetCommentsWithUserByBlog(int id);
         List<Comment> TGetCommentsOfBlogsByWriter(int id);
         Comment TGetCommentWithUserAndBlog(int id);
+        List<Comment> TGetAllCommentsOfAllBlogs();
     }
 }

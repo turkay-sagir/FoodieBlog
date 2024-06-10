@@ -9,6 +9,6 @@ namespace MyBlog.BusinessLayer.Abstract
 {
     public interface ICategoryService:IGenericService<Category>
     {
-
+        List<KeyValuePair<string, int>> TGetCategoriesWithArticleCount();
     }
 }

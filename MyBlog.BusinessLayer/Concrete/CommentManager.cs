@@ -62,5 +62,10 @@ namespace MyBlog.BusinessLayer.Concrete
         {
             _commentDal.Update(entity);
         }
+
+        public List<Comment> TGetAllCommentsOfAllBlogs()
+        {
+            return _commentDal.GetAllCommentsOfAllBlogs();
+        }
     }
 }

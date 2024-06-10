@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using MyBlog.BusinessLayer.Abstract;
 using MyBlog.BusinessLayer.Concrete;
 using MyBlog.DataAccessLayer.Abstract;
@@ -5,6 +8,7 @@ using MyBlog.DataAccessLayer.Context;
 using MyBlog.DataAccessLayer.EntityFramework;
 using MyBlog.EntityLayer.Concrete;
 using MyBlogPresentationLayer.Models;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +41,24 @@ builder.Services.AddScoped<ITagDal, EfTagDal>();
 builder.Services.AddScoped<IArticleTagService, ArticleTagManager>();
 builder.Services.AddScoped<IArticleTagDal, EfArticleTagDal>();
 
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+    options.LoginPath = "/Login/Index";
+    options.AccessDeniedPath = "/ErrorPage/Error401";
+});
 
 var app = builder.Build();
 

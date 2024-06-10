@@ -1,0 +1,38 @@
+﻿@model Tag
+@{
+    ViewData["Title"] = "CreateTag";
+    Layout = "~/Areas/Writer/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Yeni Etiket Girişi</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Etiketler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Etiket Ekleme</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Etiket Ekleme Paneli</h4>
+                        <p class="card-description">Eklemek istediğiniz etiket adını aşağıdaki alana giriniz.</p>
+                        <form class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label>Etiket Adı</label>
+                                <input type="text" class="form-control" asp-for="TagTitle" />
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2"> Etiket Oluştur </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

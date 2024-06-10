@@ -1,0 +1,115 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "CommentList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Yorum Sayfası</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Yorumlar</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Yazar Blog Yorumları </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yorum Listesi</h4>
+                        <p class="card-description">
+                            Yazarın yazdığı bloglara yapılan yorumları blog başlıklarıyla görebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Blog Başlığı</th>
+                                        <th>Yorum Sahibi</th>
+                                        <th>Tarih</th>
+                                        <th>Yorum Durumu</th>
+                                        <th>Yorum İşlemi</th>
+                                        <th>Yorumu Gör</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        string state = "";
+                                        string value = "";
+                                        string badge = "";
+
+                                        if (item.Status == "Onaylandı")
+                                        {
+                                            state = "checkbox-marked";
+                                            value = "Onaylandı";
+                                            badge = "bg-success";
+
+                                        }
+
+                                        else if (item.Status == "Bekliyor")
+                                        {
+                                            state = "pause-circle";
+                                            value = "Bekliyor";
+                                            badge = "bg-warning";
+                                        }
+
+                                        else
+                                        {
+                                            state = "";
+                                            value = "";
+                                            badge = "";
+                                        }
+
+                                        <tr>
+                                            <td>@item.CommentId</td>
+                                            <td>@item.Article.Title</td>
+                                            <td>@item.AppUser.Name</td>
+                                            <td>@item.CreatedDate</td>
+                                            <td>
+                                                <a class="badge @badge">
+                                                    <span class="icon text-white">
+                                                        <i class="mdi mdi-@state"></i>
+                                                    </span>
+                                                    <span class="text-white">@value</span>
+
+                                                </a>
+                                            </td>
+                                            <td>
+
+                                                <div class="btn-group" role="group">
+
+                                                    @using (Html.BeginForm("StatusChangeComment", "Comment", FormMethod.Post, new { area = "Admin" }))
+                                                    {
+                                                        <input type="hidden" name="id" value="@item.CommentId" />
+                                                        <input type="hidden" name="state" value="Onaylandı" />
+                                                        <button class="btn btn-success" type="submit"><span class="icon text-white"><i class="mdi mdi-checkbox-marked"></i></span><span class="text-white">Onayla</span></button>
+                                                    }
+
+                                                    @using (Html.BeginForm("StatusChangeComment", "Comment", FormMethod.Post, new { area = "Admin" }))
+                                                    {
+                                                        <input type="hidden" name="id" value="@item.CommentId" />
+                                                        <input type="hidden" name="state" value="Bekliyor" />
+                                                        <button class="btn btn-warning" type="submit"><span class="icon text-white"><i class="mdi mdi-pause-circle"></i></span><span class="text-white">Beklet</span></button>
+                                                    }
+
+                                                </div>
+                                            </td>
+                                            <td><a href="/Admin/Comment/CommentDetail/@item.CommentId" class="btn btn-info">Yorumu Gör</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

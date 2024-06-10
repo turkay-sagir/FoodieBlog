@@ -1,13 +1,13 @@
-﻿@model List<Category>
+﻿@model List<KeyValuePair<string, int>>
 
 <div class="sidebar__item__categories">
     <div class="sidebar__item__title">
-        <h6>Categories</h6>
+        <h6>Kategoriler</h6>
     </div>
     <ul>
         @foreach(var item in Model)
         {
-            <li><a href="#">@item.CategoryName <span>0</span></a></li>
+            <li><a href="#">@item.Key <span>@item.Value</span></a></li>
         }
 
     </ul>

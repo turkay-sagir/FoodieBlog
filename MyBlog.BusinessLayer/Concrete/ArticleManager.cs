@@ -72,5 +72,10 @@ namespace MyBlog.BusinessLayer.Concrete
         {
             return _articleDal.GetArticlesWithCategoryAndUser();
         }
+
+        public Article TGetArticleWithCategoryAndUser(int id)
+        {
+            return _articleDal.GetArticleWithCategoryAndUser(id);
+        }
     }
 }

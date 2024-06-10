@@ -1,0 +1,37 @@
+﻿@model CreateRoleViewModel
+@{
+    ViewData["Title"] = "CreateRole";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Yeni Rol Girişi</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Roller</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Rol Ekleme</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Rol Ekleme Paneli</h4>
+                        <p class="card-description">Aşağıdaki alanları eksiksiz olarak doldurunuz.</p>
+                        <form class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label>Rol Adı</label>
+                                <input type="text" class="form-control" asp-for="RoleName" />
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2"> Rol Oluştur </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
