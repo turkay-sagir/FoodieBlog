@@ -7,7 +7,7 @@ using MyBlog.EntityLayer.Concrete;
 
 namespace MyBlogPresentationLayer.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     [Route("Admin/Blog")]
     public class BlogController : Controller
@@ -47,7 +47,7 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
         public IActionResult DeleteBlog(int id)
         {
             _articleService.TDelete(id);
-            return RedirectToAction("AllBlogList", "Blog", new {area= "Admin" });
+            return RedirectToAction("AllBlogList", "Blog", new { area = "Admin" });
         }
 
         [HttpGet]
@@ -100,7 +100,7 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
             article.AppUserId = user.Id;
 
             _articleService.TInsert(article);
-            return RedirectToAction("AllBlogList", "Blog", new {area="Admin"});
+            return RedirectToAction("AllBlogList", "Blog", new { area = "Admin" });
         }
 
 
@@ -113,12 +113,12 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
             var currentTagsIds = _articleTagService.TGetTagListByArticle(id).Select(x => x.TagId).ToList();
 
             List<SelectListItem> tagList = (from i in allTags
-                                         select new SelectListItem
-                                         {
-                                             Text = i.TagTitle,
-                                             Value = i.TagId.ToString(),
-                                             Selected = currentTagsIds.Contains(i.TagId)
-                                         }).ToList();
+                                            select new SelectListItem
+                                            {
+                                                Text = i.TagTitle,
+                                                Value = i.TagId.ToString(),
+                                                Selected = currentTagsIds.Contains(i.TagId)
+                                            }).ToList();
 
             ViewBag.tagList = tagList;
             ViewBag.articleId = id;
@@ -130,36 +130,45 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
         public IActionResult AddTag(List<int> SelectedTagIds, int articleId)
         {
             var article = _articleService.TGetById(articleId);
-            var currentTagsIds = _articleTagService.TGetTagListByArticle(articleId).Select(x=>x.TagId).ToList(); //blogun mevcut etiketlerinin Id listesi
+            var currentTagsIds = _articleTagService.TGetTagListByArticle(articleId).Select(x => x.TagId).ToList(); //blogun mevcut etiketlerinin Id listesi
 
             foreach (var item in currentTagsIds) //seçilen etiketlerde, mevcut etiket yer almıyorsa mevcut etiketi kaldırma işlemi
             {
-                if(!SelectedTagIds.Contains(item))
+                if (!SelectedTagIds.Contains(item))
                 {
                     var value = _articleTagService.TGetArticleTagByTagIdAndArticleId(item, articleId); //mevcut etiketin ArticleTagId değerini bulma işlemi
                     _articleTagService.TDelete(value.ArticleTagId);
                 }
+
+                if (SelectedTagIds.Contains(item))
+                {
+                    
+                }
             }
 
-            foreach (var item in SelectedTagIds) //seçilen etiketleri ekleme işlemi
+            foreach (var selectedTagId in SelectedTagIds) //seçilen etiket mevcut etikette yer almıyorsa seçilen etiketi ekleme işlemi
             {
-                if(article.ArticleTags==null)
+                if (!currentTagsIds.Contains(selectedTagId))
                 {
-                    article.ArticleTags = new List<ArticleTag>();
+                    if (article.ArticleTags == null)
+                    {
+                        article.ArticleTags = new List<ArticleTag>();
+                    }
+
+                    article.ArticleTags.Add(
+
+                                new ArticleTag
+                                {
+
+                                    ArticleId = articleId,
+                                    TagId = selectedTagId
+
+                                });
                 }
-
-                article.ArticleTags.Add(
-
-                    new ArticleTag { 
-                    
-                        ArticleId = articleId,
-                        TagId = item
-                    
-                    });
             }
 
             _articleService.TUpdate(article);
-            return RedirectToAction("AllBlogList", "Blog",new {area= "Admin" });
+            return RedirectToAction("AllBlogList", "Blog", new { area = "Admin" });
         }
     }
 }

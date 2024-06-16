@@ -1,49 +1,23 @@
 ﻿
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="zxx">
-
-@await Component.InvokeAsync("_DefaultHeadComponentPartial")
-@await Component.InvokeAsync("_SidebarComponentPartial")
-
-<body>
-    @await Component.InvokeAsync("_NavbarComponentPartial")
-    <section class="categories categories-grid spad">
-        <div class="categories__post">
-            <div class="container">
-                <div class="categories__grid__post">
-                    <div class="row">
-                        @await Component.InvokeAsync("_BlogListComponentPartial")
-                        <div class="col-lg-4 col-md-4">
-                            <div class="sidebar__item">
-                                @await Component.InvokeAsync("_AboutComponentPartial")
-                                @await Component.InvokeAsync("_SocialMediaComponentPartial")
-                                @await Component.InvokeAsync("_FeaturePostComponentPartial")
-                                @await Component.InvokeAsync("_CategoryComponentPartial")
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@await Component.InvokeAsync("_BlogListComponentPartial")
+<div class="col-lg-4 col-md-4">
+    <div class="sidebar__item">
+        @await Component.InvokeAsync("_AboutComponentPartial")
+        <div class="sidebar__follow__item">
+            <div class="sidebar__item__title">
+                <h6>Bizi Takip Edin</h6>
             </div>
+            @await Component.InvokeAsync("_SocialMediaComponentPartial")
         </div>
-    </section>
-    <!-- Footer Section Begin -->
-    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
-    <!-- Footer Section End -->
 
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Blog ara...">
-            </form>
-        </div>
+        <!--FeaturePost alanı ileride düzenlenmek için yorum satırı haline getirilmiştir.-->
+        @* @await Component.InvokeAsync("_FeaturePostComponentPartial") *@ 
+        
+        @await Component.InvokeAsync("_CategoryComponentPartial")
     </div>
-    <!-- Search End -->
-    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
-</body>
-</html>
+</div>

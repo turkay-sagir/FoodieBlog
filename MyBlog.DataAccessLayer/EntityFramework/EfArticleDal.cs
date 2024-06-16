@@ -28,7 +28,7 @@ namespace MyBlog.DataAccessLayer.EntityFramework
 
         public List<Article> GetArticlesWithCategoryAndUser()
         {
-            return context.Articles.Include(x=>x.Category).Include(x=>x.AppUser).Include(x=>x.Comments).ToList();
+            return context.Articles.Include(x=>x.Category).Include(x=>x.AppUser).Include(x=>x.Comments.Where(y=>y.Status=="Onaylandı")).ToList();
         }
 
         public Article GetArticleWithCategoryAndUser(int id)

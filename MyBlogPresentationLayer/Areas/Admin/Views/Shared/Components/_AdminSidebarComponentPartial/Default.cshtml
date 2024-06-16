@@ -1,19 +1,21 @@
-﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+﻿@model AppUser
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-        <a class="sidebar-brand brand-logo" href="/Writer/Blog/MyBlogList"><img src="~/Breeze/template/assets/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="/Writer/Blog/MyBlogList"><img src="~/Breeze/template/assets/images/logo-mini.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo" href="/Admin/Blog/MyBlogList"><img src="~/Breeze/template/assets/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="/Admin/Blog/MyBlogList"><img src="~/Breeze/template/assets/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <ul class="nav">
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="~/images/@ViewBag.userImage" alt="profile" />
+                    <img src="~/images/@Model.ImageUrl" alt="profile" />
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column pr-3">
-                    <span class="font-weight-medium mb-2">@ViewBag.userInfo</span>
-                    <span class="font-weight-normal">@ViewBag.userCity</span>
+                    <span class="font-weight-medium mb-2">@Model.Name @Model.Surname</span>
+                    <span class="font-weight-normal">@Model.City</span>
                 </div>
                 <span class="badge badge-danger text-white ml-3 rounded">@ViewBag.articleCount</span>
             </a>
@@ -51,28 +53,44 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Admin/Notification/Index">
+            <a class="nav-link" href="/Admin/Notification/NotificationList">
                 <i class="mdi mdi-nfc menu-icon"></i>
                 <span class="menu-title">Bildirimler</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Admin/Blog/AllBlogList">
-                <i class="mdi mdi-blogger menu-icon"></i>
-                <span class="menu-title">Tüm Bloglar</span>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-email menu-icon"></i>
+                <span class="menu-title">Bloglar</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic3">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Blog/AllBlogList">Tüm Bloglar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Blog/MyBlogList">Bloglarım</a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Admin/Blog/MyBlogList">
-                <i class="mdi mdi-blogger menu-icon"></i>
-                <span class="menu-title">Bloglarım</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/Admin/Comment/CommentList">
-                <i class="mdi mdi-comment menu-icon"></i>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-email menu-icon"></i>
                 <span class="menu-title">Yorumlar</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Comment/AllCommentList">Tüm Yorumlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Comment/CommentList">Yorumlarım</a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">

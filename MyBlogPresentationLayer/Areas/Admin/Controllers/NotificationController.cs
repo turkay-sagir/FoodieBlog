@@ -18,11 +18,30 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
             _notificationService = notificationService;
         }
 
-        [Route("Index")]
-        public IActionResult Index()
+        [Route("NotificationList")]
+        public IActionResult NotificationList()
         {
             var values = _notificationService.TGetListAll();
             return View(values);
+        }
+
+        [HttpGet]
+        [Route("CreateNotification")]
+        public IActionResult CreateNotification()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("CreateNotification")]
+        public IActionResult CreateNotification(Notification p)
+        {
+            p.CreatedDate = DateTime.Now;
+            p.Status = true;
+
+            _notificationService.TInsert(p);
+            return RedirectToAction("NotificationList", "Notification", new { area = "Admin" });
+
         }
 
         [Route("StatusChangeNotification/{id}")]
@@ -41,7 +60,7 @@ namespace MyBlogPresentationLayer.Areas.Admin.Controllers
 
             _notificationService.TUpdate(value);
 
-            return RedirectToAction("Index", "Notification", new { Area = "Admin" });
+            return RedirectToAction("NotificationList", "Notification", new { area = "Admin" });
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.EntityLayer.Concrete;
 using MyBlogPresentationLayer.Models;
 
 namespace MyBlogPresentationLayer.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
 

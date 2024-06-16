@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace MyBlogPresentationLayer.Controllers
 {
-    
+    [AllowAnonymous]
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;

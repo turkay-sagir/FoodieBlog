@@ -43,7 +43,7 @@
                 </div>
                 <div class="single-post__top__text">
                     <p>
-                        @Model.Detail
+                        @Html.Raw(Model.Detail)
                     </p>
                 </div>
                 @await Component.InvokeAsync("_ArticleTagListComponentPartial", new { id = ViewBag.ArticleId })

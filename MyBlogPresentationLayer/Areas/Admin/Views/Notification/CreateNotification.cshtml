@@ -1,0 +1,41 @@
+﻿@model Notification
+@{
+    ViewData["Title"] = "CreateNotification";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">Yeni Bildirim Girişi</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Bildirimler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Bildirim Ekleme</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Bildirim Ekleme Paneli</h4>
+                        <p class="card-description">Eklemek istediğiniz bildirim adını aşağıdaki alana giriniz.</p>
+                        <form class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label>Bildirim Başlığı</label>
+                                <input type="text" class="form-control" asp-for="Subject" />
+                            </div>
+                            <div class="form-group">
+                                <label>Bildirim Açıklaması</label>
+                                <input type="text" class="form-control" asp-for="Description" />
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2"> Bildirim Oluştur </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

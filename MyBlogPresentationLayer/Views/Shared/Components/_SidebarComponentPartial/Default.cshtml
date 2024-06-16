@@ -11,23 +11,16 @@
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
             <li><a href="/Default/Index">Anasayfa</a></li>
-            <li><a href="#">Hakkımızda</a></li>
-            <li><a href="#">Yazar Girişi</a></li>
+            <li><a href="/Login/Index">Yazar Girişi</a></li>
+            <li><a href="/Contact/Index">Bize Ulaşın</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="humberger__menu__about">
-        <div class="humberger__menu__title sidebar__item__title">
-            <h6>Bize Ulaşın</h6>
-        </div>
         <img src="~/foodeiblog-master/img/humberger/humberger-about.jpg" alt="">
         <h6>Aşağıdaki hesaplarımız üzerinden bize yazabilirsiniz.</h6>
-        <div class="humberger__menu__about__social sidebar__item__follow__links">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-envelope-o"></i></a>
+        <div style="margin-top:10px" class="humberger__menu__about__social sidebar__item__follow__links">
+            @await Component.InvokeAsync("_SocialMediaComponentPartial")
         </div>
     </div>
 </div>

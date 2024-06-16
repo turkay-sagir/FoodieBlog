@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+@await Component.InvokeAsync("_SidebarComponentPartial")
+
+<body>
+    @await Component.InvokeAsync("_NavbarComponentPartial")
+    <section class="categories categories-grid spad">
+        <div class="categories__post">
+            <div class="container">
+                <div class="categories__grid__post">
+                    <div class="row">
+                        @RenderBody();
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section Begin -->
+    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+    <!-- Footer Section End -->
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Blog ara...">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+</body>
+</html>
