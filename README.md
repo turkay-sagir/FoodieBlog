@@ -16,7 +16,7 @@
 <p>🟢 <b>Code First Yaklaşımı :</b> Entityler ve diğer tüm yapılar, ORM Modelleme yöntemlerinden biri olan <b>Code First Yaklaşımı</b> ile oluşturulmuştur.</p>
 <p>🟢 <b>Microsoft SQL Server :</b> Veritabanı yönetim sistemi olarak MSSQL kullanılmıştır.</p>
 <p>🟢 <b>N-Katmanlı Mimari ve Repository Design Pattern :</b> Projenin Entity, DataAcces, Business ve Presentation katmanlarına ayrılarak yönetilebilir ve modüler bir yapıda
-olması sağlanmıştır. DataAccess katmanında veri erişimini Repository Design Pattern ile soyutlayarak veritabanı işlemleri gerçekleştirilmiştir.</p>
+olması sağlanmıştır. DataAccess katmanında veri erişimi, Repository Design Pattern ile soyutlanarak veritabanı işlemleri gerçekleştirilmiştir.</p>
 <p>🟢 <b>Identity :</b> Projede, kullanıcı kimlik doğrulama ve yetkinlendirme yapmak için login ve register işlemlerinde kullanılmıştır.</p>
 <p>🟢 <b>Fluent Validation :</b> Business katmanı içinde belirlenen doğrulama şartlarını yönetmek amacıyla kullanılmıştır.</p>
 <p>🟢 <b>API (Application Programming Interface) :</b> Anlık hava durumu bilgisi sağlaması amacıyla yazar panelinde Dashboard içerisinde kullanılmıştır.</p>
