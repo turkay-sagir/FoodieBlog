@@ -16,7 +16,7 @@ namespace MyBlogPresentationLayer.Areas.Admin.ViewComponents.AdminLayoutViewComp
 
         public IViewComponentResult Invoke()
         {
-            var values = _notificationService.TGetListAll().Where(x => x.Status == true).TakeLast(3).ToList();
+            var values = _notificationService.TGetListAll().Where(x => x.Status == false).TakeLast(3).ToList();
             ViewBag.notificationCount = values.Count();
             return View(values);
         }
